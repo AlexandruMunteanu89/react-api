@@ -1,1 +1,17 @@
 @import url('bootstrap');
+.attore-img{
+  height: 240px;
+  object-fit: cover;
+  object-position: top;
+}
+.attori{
+  display: flex;
+  background-color: rgb(226, 236, 233);
+  border: solid black;
+  border-radius: 10px;
+  margin-top: 1rem;
+  padding-left: 1rem;
+}
+.attore-image{
+  
+}
