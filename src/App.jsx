@@ -1,29 +1,44 @@
-import { useState } from "react"
+import { use, useEffect, useState } from "react"
 
 function App() {
 
-  const [tasks, setTasks] = useState([])
+  const [attori, setAttori] = useState([])
+  const api_url = 'https://lanciweb.github.io/demo/api/actresses/'
 
-  function getTasks(){
-    //Get the tasks from the api
-    console.log('https://lanciweb.github.io/demo/api/actresses/');
-    fetch('https://lanciweb.github.io/demo/api/actresses/')
-  }
+  useEffect(()=>{
+    console.log('Component mounted');
+    fetch(api_url)
+    .then(response => response.json())
+    .then(data => {
+      console.log(data);
+      setAttori(data)
+      
+    })
+    
+  }, [])
+
   
-
   return (
     <>
-      <h1>ciao</h1>
+      <h1>Attori</h1>
 
-      <button onClick={getTasks}>Get the tasks</button>
+      <section>
+        <div className="container">
+          <div className="row row-cols 1 row-cols-sm-3 g-4">
+            {attori.map(attore => (
+            <div className="col">
+              <div className="card p-3">
+                {attore.name}
+                
+               
+              </div>
+            </div>
+            ))}
+          </div>
+        </div>
+      </section>
 
-      <ul>
-        {
-          tasks.map((task) => (
-            <li key={task.id}>{task.title}</li>
-          ))
-        }
-      </ul>
+      
 
           
           
