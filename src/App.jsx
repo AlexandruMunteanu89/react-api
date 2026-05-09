@@ -18,12 +18,12 @@ function App() {
     
   }, [])
 
-  /*const [attrici, setAttrici] = useState([])
-  const api_url = 'https://lanciweb.github.io/demo/api/actresses/'
+  const [attrici, setAttrici] = useState([])
+  const apiActresses_url = 'https://lanciweb.github.io/demo/api/actresses/'
 
   useEffect(()=>{
     console.log('Component mounted');
-    fetch(api_url)
+    fetch(apiActresses_url)
     .then(response => response.json())
     .then(data => {
       console.log(data);
@@ -31,7 +31,7 @@ function App() {
       
     })
     
-  }, [])*/
+  }, [])
 
   
   return (
@@ -44,27 +44,45 @@ function App() {
               <h1>Lista Attori</h1>
                 {attori.map(attore => (
                   <div className="attori" key={attore.id}>
-              
-                    <div className="attore-image">
-                      <img src={attore.image} className="card-img-top attore-img" alt="..." />
-                    </div>
                     <div className="attori-info">
-                      <h4>
-                        {attore.name}
-                
-                      </h4>
-                        
+                      <div className="attore-image">
+                        <img src={attore.image} className="attore-img" alt="..." />
+                      </div>
+                      <div>
+                        <h4>
+                          {attore.name}
+                        </h4>
                         <p>{attore.birth_year}</p>
                         <p>{attore.nationality}</p>
                         <p>{attore.known_for}</p>
                         <p>{attore.awards}</p>
-                        
-                        
-                      <p>{attore.biography}</p>
+                      </div>
                     </div>
-              
+                    <div className="attore-biography"><p>{attore.biography}</p></div> 
                   </div>
              ))}
+            </div>
+            <div className="lista-attori col-6">
+              <h1>Lista Attrici</h1>
+                {attrici.map(attrice => (
+                  <div className="attori" key={attrice.id}>
+                    <div className="attori-info">
+                      <div className="attore-image">
+                        <img src={attrice.image} className="attore-img" alt="..." />
+                      </div>
+                      <div>
+                        <h4>
+                          {attrice.name}
+                        </h4>
+                        <p>{attrice.birth_year}</p>
+                        <p>{attrice.nationality}</p>
+                        <p>{attrice.known_for}</p>
+                        <p>{attrice.awards}</p>
+                      </div>
+                    </div>
+                    <div className="attore-biography"><p>{attrice.biography}</p></div> 
+                  </div>
+                ))}
             </div>
           </div>
         </div>
